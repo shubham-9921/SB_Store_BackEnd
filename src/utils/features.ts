@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 import { invalidateType } from "../types/types.js";
 import Product from "../models/Product.js";
 
-export const connnectDB = () =>
+export const connnectDB = (uri: string) =>
   mongoose
-    .connect("mongodb://localhost:27017", {
+    .connect(uri, {
       dbName: "Ecommerce24",
     })
     .then((c) => console.log(`Database Connected to ${c.connection.host}`))

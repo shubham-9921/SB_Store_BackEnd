@@ -4,12 +4,19 @@ import { errorMiddleware } from "./middlewares/Error.js";
 import userRoute from "./routes/user.js";
 import productRoute from "./routes/productRoutes.js";
 import NodeCache from "node-cache";
+import { config } from "dotenv";
+import morgan from "morgan";
 
+config({
+  path: "./.env",
+});
+const mongoURI = process.env.MONGO_URI || "";
 const port = process.env.PORT || 4000;
 
-connnectDB();
+connnectDB(mongoURI);
 const app = express();
 app.use(express.json());
+app.use(morgan("dev"));
 
 export const nodeCache = new NodeCache();
 
