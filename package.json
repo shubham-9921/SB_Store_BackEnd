@@ -1,0 +1,36 @@
+{
+  "name": "ecom_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buld": "tsc",
+    "watch": "tsc -w",
+    "dev": "nodemon ./dist/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "faker": "^6.6.6",
+    "mongoose": "^8.8.1",
+    "mongose": "^0.0.2-security",
+    "multer": "^1.4.5-lts.1",
+    "node-cache": "^5.1.2",
+    "tsc-init": "^2.1.0",
+    "uuid": "^11.0.3",
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.9.0",
+    "@types/uuid": "^10.0.0",
+    "@types/validator": "^13.12.2",
+    "typescript": "^5.6.3"
+  }
+}
