@@ -45,6 +45,9 @@ export type invalidateType = {
   product?: boolean;
   order?: boolean;
   admin?: boolean;
+  userId?: string;
+  orderId?: string;
+  productId?: string | string[];
 };
 
 export type OrderItemType = {
@@ -62,6 +65,7 @@ export type ShippingInfoType = {
   country: string;
   pinCode: number;
 };
+
 export interface NewOrderReqBody {
   shippingInfo: ShippingInfoType;
   user: string;
