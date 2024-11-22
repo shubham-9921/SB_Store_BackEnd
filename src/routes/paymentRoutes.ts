@@ -7,12 +7,16 @@ import express from "express";
 import {
   applyDiscount,
   createCoupon,
+  createStripeIntent,
   deleteCoupon,
   getAllCoupons,
 } from "../controllers/paymentController.js";
 import { adminOnly } from "../middlewares/auth.js";
 
 const app = express.Router();
+
+// /api/v1/payment/create :Stripe Intent
+app.post("/create", createStripeIntent);
 
 // /api/v1/payment/coupon/new :Create coupun
 app.post("/coupon/new", adminOnly, createCoupon);
