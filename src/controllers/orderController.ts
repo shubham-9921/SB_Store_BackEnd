@@ -118,7 +118,7 @@ export const getOrderdetails = tryCatch(async (req, res, next) => {
 
   return res.status(200).json({
     success: true,
-    message: order,
+    order,
   });
 });
 
@@ -131,13 +131,17 @@ export const processOrder = tryCatch(async (req, res, next) => {
     return next(new ErrorHandler("Order not Found", 404));
   }
 
+  console.log(order.status);
   switch (order.status) {
     case "Processing":
       order.status = "Shipped";
+      break;
     case "Shipped":
       order.status = "Delivered";
+      break;
     default:
       order.status = "Delivered";
+      break;
   }
 
   await order.save();

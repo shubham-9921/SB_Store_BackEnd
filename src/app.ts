@@ -43,6 +43,7 @@ app.use("/uploads", express.static("uploads"));
 app.get("/", (req, res) => {
   res.status(200).json({ msg: "Server is running on port 4000" });
 });
+// await generateProduct(10);
 
 app.use(errorMiddleware);
 app.listen(port, () => {

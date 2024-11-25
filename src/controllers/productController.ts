@@ -162,6 +162,7 @@ export const updateSingleProduct = tryCatch(async (req, res, next) => {
     rm(product.photo, () => {
       console.log("Old photo deleted");
       product.photo = photo.path;
+      console.log(product.photo);
     });
   }
 
@@ -169,8 +170,10 @@ export const updateSingleProduct = tryCatch(async (req, res, next) => {
   if (price) product.price = price;
   if (stock) product.stock = stock;
   if (category) product.category = category;
+  if (photo) product.photo = photo.path;
 
   console.log(req.body);
+  console.log(req.file);
 
   await product.save();
 
@@ -243,7 +246,7 @@ export const getAllProducts = tryCatch(
   }
 );
 
-// const generateProduct = async (count: number = 10) => {
+// export const generateProduct = async (count: number = 10) => {
 //   const products = [];
 
 //   for (let i = 0; i < count; i++) {
