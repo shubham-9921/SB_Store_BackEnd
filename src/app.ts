@@ -36,7 +36,7 @@ app.use("/api/v1/user", userRoute);
 app.use("/api/v1/product", productRoute);
 app.use("/api/v1/order", orderRoutes);
 app.use("/api/v1/payment", paymentRoutes);
-app.use("/api/v1/dasboard", dashboardRoutes);
+app.use("/api/v1/dashboard", dashboardRoutes);
 
 app.use("/uploads", express.static("uploads"));
 

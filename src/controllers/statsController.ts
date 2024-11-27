@@ -85,7 +85,7 @@ export const getDasboardStats = tryCatch(async (req, res, next) => {
     });
 
     const latestTransactionPromise = Order.find()
-      .select(["discount", "amount", "total", "orderItems"])
+      .select(["discount", "amount", "total", "orderItems", "status"])
       .limit(4);
 
     const [
@@ -140,7 +140,13 @@ export const getDasboardStats = tryCatch(async (req, res, next) => {
       user: calculatePercentage(thisMonthUsers.length, lastMonthUsers.length),
     };
 
+    const revenue = ordersCount.reduce(
+      (total, order) => total + (order.total || 0),
+      0
+    );
+
     const count = {
+      revenue,
       products: productsCount,
       users: usersCount,
       orders: ordersCount.length,
@@ -188,7 +194,7 @@ export const getDasboardStats = tryCatch(async (req, res, next) => {
       _id: i.id,
       discount: i.discount,
       amount: i.total,
-      qunatity: i.orderItems.length,
+      quantity: i.orderItems.length,
       status: i.status,
     }));
 

@@ -27,7 +27,7 @@ app.get("/coupon/discount", applyDiscount);
 // /api/v1/payment/coupon/all :All Coupons
 app.get("/coupon/all", adminOnly, getAllCoupons);
 
-// /api/v1/payment/coupon/:id :Dlete Coupons
+// /api/v1/payment/coupon/:id :Delete Coupons
 app.delete("/coupon/:id", adminOnly, deleteCoupon);
 
 export default app;
