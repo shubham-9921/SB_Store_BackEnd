@@ -144,6 +144,7 @@ export const updateSingleProduct = tryCatch(async (req, res, next) => {
   const { id } = req.params;
 
   const { name, price, stock, category } = req.body;
+
   const photo = req.file;
 
   const product = await Product.findById(id);
@@ -162,7 +163,6 @@ export const updateSingleProduct = tryCatch(async (req, res, next) => {
     rm(product.photo, () => {
       console.log("Old photo deleted");
       product.photo = photo.path;
-      console.log(product.photo);
     });
   }
 

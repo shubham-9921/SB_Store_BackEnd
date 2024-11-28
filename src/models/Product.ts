@@ -18,6 +18,7 @@ const productSchema = new mongoose.Schema(
     stock: {
       type: Number,
       required: [true, "Please Enter stock"],
+      default: 0,
     },
     category: {
       type: String,
