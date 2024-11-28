@@ -4,21 +4,21 @@ import {
   deleteOrder,
   getOrderdetails,
   myOrder,
-  newOrder,
+  newOrders,
   processOrder,
 } from "../controllers/orderController.js";
-import { adminOnly } from "../middlewares/auth.js";
+import { adminOnlys } from "../middlewares/auth.js";
 
 const app = express.Router();
 
 // /api/v1/order/new
-app.post("/new", newOrder);
+app.post("/new", newOrders);
 
 // /api/v1/order/myorder
 app.get("/myorder", myOrder);
 
 // /api/v1/order/myorder
-app.get("/all", adminOnly, allOrders);
+app.get("/all", adminOnlys, allOrders);
 
 // /api/v1/order/:id
 app

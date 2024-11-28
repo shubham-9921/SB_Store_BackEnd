@@ -36,7 +36,7 @@ export const createCoupon = tryCatch(async (req, res, next) => {
 export const applyDiscount = tryCatch(async (req, res, next) => {
   const { couponCode } = req.query;
 
-  let discount: number;
+  let discount: number = 0;
 
   if (!couponCode) {
     return next(new ErrorHandler("Please Enter All Fields", 400));

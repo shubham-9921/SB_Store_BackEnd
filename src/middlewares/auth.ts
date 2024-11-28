@@ -1,7 +1,7 @@
 import User from "../models/User.js";
 import { tryCatch } from "./Error.js";
 
-export const adminOnly = tryCatch(async (req, res, next) => {
+export const adminOnlys = tryCatch(async (req, res, next) => {
   const { id } = req.query;
 
   if (!id) {
@@ -18,5 +18,6 @@ export const adminOnly = tryCatch(async (req, res, next) => {
       .status(403)
       .json({ message: "You are not authorized to access this resource" });
   }
+
   next();
 });
