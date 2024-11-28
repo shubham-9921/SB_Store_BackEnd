@@ -6,7 +6,7 @@
   "scripts": {
     "start":"node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "buld": "tsc",
+    "build": "tsc",
     "watch": "tsc -w",
     "dev": "nodemon ./dist/app.js"
   },
